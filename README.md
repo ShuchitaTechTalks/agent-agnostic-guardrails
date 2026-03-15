@@ -64,14 +64,14 @@ After generation, validate that the expected module/package structure exists bef
 
 ## Part 3: Step 2 - Add AGENTS.md Guardrails
 
-Copy instruction templates from `AgentFiles/` into the generated project as `AGENTS.md` files.
+Copy instruction templates from `agentfiles/` into the generated project as `AGENTS.md` files.
 
 | Source file | Destination |
 |---|---|
-| `AgentFiles/PARENT-AGENTS.md` | `<project-root>/AGENTS.md` |
-| `AgentFiles/CONTROLLER-AGENTS.md` | `<project-root>/src/main/java/.../controller/AGENTS.md` |
-| `AgentFiles/SERVICE-AGENTS.md` | `<project-root>/src/main/java/.../service/AGENTS.md` |
-| `AgentFiles/REPO-AGENTS.md` | `<project-root>/src/main/java/.../repository/AGENTS.md` (or `.../repo/AGENTS.md` if that is your package name) |
+| `agentfiles/PARENT-AGENTS.md` | `<project-root>/AGENTS.md` |
+| `agentfiles/CONTROLLER-AGENTS.md` | `<project-root>/src/main/java/.../controller/AGENTS.md` |
+| `agentfiles/SERVICE-AGENTS.md` | `<project-root>/src/main/java/.../service/AGENTS.md` |
+| `agentfiles/REPO-AGENTS.md` | `<project-root>/src/main/java/.../repository/AGENTS.md` (or `.../repo/AGENTS.md` if that is your package name) |
 
 Why this matters:
 
@@ -129,10 +129,12 @@ Track at minimum:
 ## Reference Files in This Repo
 
 - `spring-boot-project-generation/project-generation-prompt.md` - Spring Boot generation instructions
-- `AgentFiles/PARENT-AGENTS.md` - repo-level guardrails template
-- `AgentFiles/CONTROLLER-AGENTS.md` - controller guardrails template
-- `AgentFiles/SERVICE-AGENTS.md` - service guardrails template
-- `AgentFiles/REPO-AGENTS.md` - repository guardrails template
-- `Agent-Agnostic Guardrails.pdf` - presentation in PDF format
+- `agentfiles/PARENT-AGENTS.md` - repo-level guardrails template
+- `agentfiles/CONTROLLER-AGENTS.md` - controller guardrails template
+- `agentfiles/SERVICE-AGENTS.md` - service guardrails template
+- `agentfiles/REPO-AGENTS.md` - repository guardrails template
+- `Agent-Agnostic-Guardrails.pdf` - presentation in PDF format
+- `presentationascii.adoc` ASCII-compatible presentation format
+- `presentationmarkup.md` markup-compatible presentation format
 - `presentationascii.adoc` ASCII-compatible presentation format
 - `presentationmarkup.md` markup-compatible presentation format
