@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590">
+  <defs>
+    <filter id="shadow" x="-2%" y="-4%" width="104%" height="112%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  <style>
+    text { font-family: 'Segoe UI', 'Inter', Arial, sans-serif; }
+    .box-title { font-size: 22px; font-weight: bold; fill: #ffffff; }
+    .box-sub   { font-size: 15px; fill: #ffffff; letter-spacing: 0.02em; }
+    .arrow     { font-size: 22px; fill: #1a5fa8; text-anchor: middle; dominant-baseline: central; font-weight: bold; }
+  </style>
+
+  <!-- Box 1: System Instructions -->
+  <rect x="10" y="10" width="980" height="78" rx="12" fill="#002f80" filter="url(#shadow)"/>
+  <text x="56" y="42" class="box-title">&#x1F527;&#xFE0F;  System Instructions &amp; Behavior Guidelines</text>
+  <text x="56" y="68" class="box-sub">Agent rules, safety guardrails, base behavior — set by the tool or vendor</text>
+
+  <!-- Arrow 1 -->
+  <text x="500" y="98" class="arrow">&#9660;</text>
+
+  <!-- Box 2: Custom Instructions -->
+  <rect x="10" y="108" width="980" height="78" rx="12" fill="#004bb5" filter="url(#shadow)"/>
+  <text x="56" y="140" class="box-title">&#x1F4C4;  Custom Instructions</text>
+  <text x="56" y="166" class="box-sub">Project-specific rules — your AGENTS.md, coding standards, team conventions</text>
+
+  <!-- Arrow 2 -->
+  <text x="500" y="196" class="arrow">&#9660;</text>
+
+  <!-- Box 3: Conversation History -->
+  <rect x="10" y="206" width="980" height="78" rx="12" fill="#0060c0" filter="url(#shadow)"/>
+  <text x="56" y="238" class="box-title">&#x1F4AC;  Conversation History</text>
+  <text x="56" y="264" class="box-sub">Everything in the current session — prompts, replies, corrections</text>
+
+  <!-- Arrow 3 -->
+  <text x="500" y="294" class="arrow">&#9660;</text>
+
+  <!-- Box 4: Implicit Context -->
+  <rect x="10" y="304" width="980" height="78" rx="12" fill="#2575cc" filter="url(#shadow)"/>
+  <text x="56" y="336" class="box-title">&#x1F4C2;  Implicit Context</text>
+  <text x="56" y="362" class="box-sub">Open files, selected code, git diff — silently passed by your IDE</text>
+
+  <!-- Arrow 4 -->
+  <text x="500" y="392" class="arrow">&#9660;</text>
+
+  <!-- Box 5: Explicit References -->
+  <rect x="10" y="402" width="980" height="78" rx="12" fill="#4090d8" filter="url(#shadow)"/>
+  <text x="56" y="434" class="box-title">&#x1F517;  Explicit References</text>
+  <text x="56" y="460" class="box-sub">Files or docs you manually attach — #file, #codebase, pasted snippets</text>
+
+  <!-- Arrow 5 -->
+  <text x="500" y="490" class="arrow">&#9660;</text>
+
+  <!-- Box 6: Tool Outputs -->
+  <rect x="10" y="500" width="980" height="78" rx="12" fill="#55aae5" filter="url(#shadow)"/>
+  <text x="56" y="532" class="box-title">&#x2699;&#xFE0F;  Tool Outputs</text>
+  <text x="56" y="558" class="box-sub">Terminal results, search outputs, API responses — live feedback fed back in</text>
+</svg>
