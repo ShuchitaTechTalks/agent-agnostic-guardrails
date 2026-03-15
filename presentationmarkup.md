@@ -1,4 +1,4 @@
-﻿---
+---
 marp: true
 size: 16:9
 theme: default
@@ -144,6 +144,27 @@ A **human-readable, machine-executable** format for defining coding standards.
 - Ensure logs do not contain sensitive data / PII
 - Validate all user inputs to prevent injection attacks (e.g., SQL injection, XSS)
 ```
+
+---
+
+## How Agents Discover AGENTS.md
+
+```
+  Agent starts here
+        |
+        v
+  project-root/              <- 1. Read first (global rules)
+  +-- AGENTS.md  [ROOT]
+  +-- src/
+      +-- main/              <- 2. Read next (module rules)
+      |   +-- AGENTS.md  [MODULE]
+      |   +-- java/
+      |       +-- com/myapp/service/    <- 3. Read last (nearest wins)
+      |           +-- AGENTS.md  [LOCAL] <-- most specific, overrides parent
+      |           +-- UserService.java  <-- file being generated
+```
+
+> Rules **merge top-down** — nearest `AGENTS.md` overrides parent on conflict
 
 ---
 
