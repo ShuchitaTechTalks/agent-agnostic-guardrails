@@ -1,4 +1,4 @@
----
+﻿---
 marp: true
 size: 16:9
 theme: default
@@ -128,19 +128,16 @@ A **human-readable, machine-executable** format for defining coding standards.
 ## Build and Test Commands
 
 ## Code Quality and Style
-
 - Public methods must have JavaDoc comments
 - No null pointer dereferences
 - Follow resource-leak prevention patterns
 
 ## Architecture
-
 - Dependency injection required
 - No static initialization blocks
 - Immutable objects for data transfer
 
 ## Security Consideration
-
 - Ensure logs do not contain sensitive data / PII
 - Validate all user inputs to prevent injection attacks (e.g., SQL injection, XSS)
 ```
@@ -186,8 +183,10 @@ A **human-readable, machine-executable** format for defining coding standards.
 
 ---
 
-## Agile Agent Workflow
-![bg right:55% 95%](AI_Code_generated_Workflow.png)
+## Agent Feedback Loop
+
+![w:98%](agent_feedback_loop.svg)
+
 
 ---
 
@@ -263,62 +262,27 @@ A **human-readable, machine-executable** format for defining coding standards.
 
 ---
 
-## AGENTS.md with Plugins Section
+## AGENTS.md — Plugins Section
 
 ```markdown
-# Project Standards
-
-## Code Quality Rules
-
-- All public methods must have JavaDoc
-- Maximum method length: 50 lines
-- Cyclomatic complexity <= 10
-- No null pointer dereferences
-- Resources must be auto-closed
-
-## Architectural Rules
-
-- Controller → Service → Repository (layered)
-- No circular dependencies
-- Service layer exceptions must extend CustomException
-
 ## Plugins
 
 Mandatory validation tools integrated with this AGENTS.md:
 
-| Tool | Config | Purpose |
-|------|--------|---------|
-| Checkstyle | checkstyle.xml | Code style enforcement |
-| SpotBugs | spotbugs.xml | Runtime bug detection |
-| ArchUnit | ArchitectureTest.java | Architecture validation |
+| Tool       | Config                  | Purpose                   |
+|------------|-------------------------|---------------------------|
+| Checkstyle | checkstyle.xml          | Code style enforcement    |
+| SpotBugs   | spotbugs.xml            | Runtime bug detection     |
+| ArchUnit   | ArchitectureTest.java   | Architecture validation   |
 
-### Integration Instructions
-
+## Integration Instructions
 1. Agent reads AGENTS.md as standard contract
 2. Agent generates code accordingly
-3. Build runs: `./mvnw verify`
-4. If violations found, agent receives error report
+3. Build runs: ./mvnw verify
+4. If violations found → agent receives error report
 5. Agent regenerates fixes and retries
 ```
 
----
-
-## Agent Feedback Loop
-
-**When Build Fails:**
-
-```
-Build Error Report:
-├── Checkstyle: Line 45 - Missing JavaDoc
-├── SpotBugs: Potential null pointer at line 78
-└── ArchUnit: Controller accessing repository directly
-```
-
-**Agent Actions:**
-1. ✅ Reads error report
-2. ✅ Reviews AGENTS.md rules
-3. ✅ Regenerates code with fixes
-4. ✅ Commit passes next build
 
 ---
 
@@ -357,14 +321,13 @@ Build Error Report:
 
 ## Live Demo Roadmap
 
-1. 🤖 Generate code using prompt for a crud API (attempt 1)
-2. 🔍 Observe the code with Checkstyle, SpotBugs, ArchUnit
-2. ✍️ Now Write AGENTS.md with standards
-2. 🤖 Generate code with Agent (attempt 2)
-3. ❌ Build fails - violations detected
-4. 🔧 Agent receives feedback
-5. ✅ Agent regenerates - build passes
-6. 📊 Compare code quality metrics
+1. 🤖 Display code generated using prompt for a crud API without Checkstyle, SpotBugs, ArchUnit or AGENTS.md file. 
+2. 🔍 Observe the code quality 
+3. ✍️ Now Write AGENTS.md with standards
+4. 🤖 Generate code with AGENTS.md file and Checkstyle, SpotBugs, ArchUnit.
+5. 🔧 Agent receives reads the plugin and AGENTS.md files.
+6. ✅ Agent generatescode.
+7. 📊 Compare code quality metrics
 
 ---
 
@@ -377,7 +340,7 @@ Build Error Report:
 | **SpotBugs** | Prevents runtime/security bugs |
 | **ArchUnit** | Maintains architectural integrity |
 
-**Integration:** Standards + Tools + Feedback Loop = Production-Ready AI Code
+**Integration:** Standards + Tools + Feedback Loop = Ready for Functional Review
 
 ---
 
@@ -403,7 +366,7 @@ Build Error Report:
 🔗 **LinkedIn:** https://www.linkedin.com/in/shuchita-prasad
 💻 **GitHub:** https://github.com/ShuchitaTechTalks/agent-agnostic-guardrails
 
-**Get the code, recreate the project, and join the conversation on building production-ready AI-generated code.**
+**Get the code, recreate the project, and join the conversation .**
 
 ---
 
@@ -417,5 +380,5 @@ Build Error Report:
 - SpotBugs: https://spotbugs.readthedocs.io/
 - ArchUnit: https://www.archunit.org/
 
-**Let's make AI-generated code boring, predictable, and production-ready.**
+**Let's make AI-generated code boring, predictable, and better quality.**
 
