@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Feedback Loop</title>
+  <desc id="desc">Flow diagram showing coding agent, build verification with Checkstyle, SpotBugs and ArchUnit, decision pass or fail, and looped feedback to regenerate code.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 50px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .label { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .sub { font: 500 24px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .small { font: 500 21px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .mono { font: 600 24px 'Consolas', 'Courier New', monospace; fill: #0f172a; }
+      .ok { fill: #16a34a; }
+      .warn { fill: #dc2626; }
+      .arrow-label { font: 600 21px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .box-stroke { stroke: #1d4ed8; stroke-width: 3; }
+      .soft-stroke { stroke: #94a3b8; stroke-width: 2; }
+    </style>
+
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#1d4ed8" />
+    </marker>
+
+    <marker id="arrowSlate" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#475569" />
+    </marker>
+
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fbff" />
+      <stop offset="100%" stop-color="#eef4ff" />
+    </linearGradient>
+
+    <linearGradient id="buildGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#dbeafe" />
+      <stop offset="100%" stop-color="#eff6ff" />
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#bgGrad)" />
+
+  <text x="960" y="75" text-anchor="middle" class="title">Agent Feedback Loop with Static Analysis</text>
+
+  <!-- Coding Agent -->
+  <rect x="610" y="110" width="700" height="110" rx="18" fill="#ffffff" class="box-stroke" filter="url(#shadow)"/>
+  <text x="960" y="158" text-anchor="middle" class="label">Coding Agent</text>
+  <text x="960" y="193" text-anchor="middle" class="sub">Generates and refines code</text>
+
+  <!-- Arrow: generate code -->
+  <line x1="960" y1="222" x2="960" y2="280" stroke="#1d4ed8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <text x="984" y="258" class="arrow-label">Generates code</text>
+
+  <!-- Build container -->
+  <rect x="360" y="292" width="1200" height="300" rx="20" fill="url(#buildGrad)" class="box-stroke" filter="url(#shadow)"/>
+  <text x="960" y="345" text-anchor="middle" class="label">Build and Validation</text>
+  <text x="960" y="380" text-anchor="middle" class="mono">./mvnw verify</text>
+
+  <!-- Tool boxes -->
+  <rect x="430" y="415" width="320" height="140" rx="14" fill="#ffffff" class="soft-stroke"/>
+  <text x="590" y="467" text-anchor="middle" class="label" style="font-size:28px;">Checkstyle</text>
+  <text x="590" y="505" text-anchor="middle" class="small">Style and format rules</text>
+
+  <rect x="800" y="415" width="320" height="140" rx="14" fill="#ffffff" class="soft-stroke"/>
+  <text x="960" y="467" text-anchor="middle" class="label" style="font-size:28px;">SpotBugs</text>
+  <text x="960" y="505" text-anchor="middle" class="small">Bug pattern detection</text>
+
+  <rect x="1170" y="415" width="320" height="140" rx="14" fill="#ffffff" class="soft-stroke"/>
+  <text x="1330" y="467" text-anchor="middle" class="label" style="font-size:28px;">ArchUnit</text>
+  <text x="1330" y="505" text-anchor="middle" class="small">Architecture constraints</text>
+
+  <!-- Decision split -->
+  <line x1="960" y1="592" x2="960" y2="645" stroke="#1d4ed8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <text x="986" y="627" class="arrow-label">Validation result</text>
+
+  <!-- Left: Violations -->
+  <rect x="220" y="665" width="620" height="220" rx="18" fill="#fff1f2" stroke="#dc2626" stroke-width="3" filter="url(#shadow)"/>
+  <text x="530" y="717" text-anchor="middle" class="label warn">Violations Found</text>
+  <text x="280" y="763" class="small">• Missing JavaDoc</text>
+  <text x="280" y="801" class="small">• Potential null pointer dereference</text>
+  <text x="280" y="839" class="small">• Layering rule violation</text>
+
+  <!-- Right: Pass -->
+  <rect x="1080" y="665" width="620" height="220" rx="18" fill="#ecfdf3" stroke="#16a34a" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1390" y="717" text-anchor="middle" class="label ok">All Checks Pass</text>
+  <text x="1390" y="768" text-anchor="middle" class="small">Code ready for functional review</text>
+  <text x="1390" y="812" text-anchor="middle" class="small">Repetative Quality standards verified automatically</text>
+
+  <!-- Branch arrows -->
+  <polyline points="960,645 720,645 720,664" fill="none" stroke="#dc2626" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <polyline points="960,645 1200,645 1200,664" fill="none" stroke="#16a34a" stroke-width="4" marker-end="url(#arrowBlue)"/>
+
+  <!-- Feedback loop path -->
+  <path d="M220 775 C80 775, 80 250, 590 250" fill="none" stroke="#475569" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#arrowSlate)"/>
+  <text x="115" y="515" transform="rotate(-90 115 515)" class="arrow-label">Feedback to agent: report + AGENTS.md</text>
+
+  <!-- Regeneration note -->
+  <rect x="690" y="860" width="540" height="92" rx="14" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="960" y="898" text-anchor="middle" class="small">Agent applies fixes, regenerates code, and reruns verify</text>
+  <text x="960" y="932" text-anchor="middle" class="small">Loop continues until all tools pass</text>
+</svg>
